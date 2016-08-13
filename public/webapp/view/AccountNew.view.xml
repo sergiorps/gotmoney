@@ -1,0 +1,55 @@
+<mvc:View controllerName="com.mlauffer.gotmoneyappui5.controller.Account"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page title="{i18n>Account.title}" showNavButton="true"
+		navButtonPress="onNavBack">
+		<l:Grid defaultSpan="L12 M12 S12" width="auto">
+			<f:SimpleForm id="accountForm" minWidth="800"
+				maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+				labelSpanL="3" labelSpanM="3" emptySpanL="3" emptySpanM="3"
+				columnsL="1" columnsM="1">
+				<core:Title text="{i18n>General.create}" />
+				<Label text="{i18n>Account.accountType}" required="true" />
+				<Select id="idtype" selectedKey="{account>/idtipo}"
+					items="{accTypes>/}" change="onChangeType">
+					<core:Item key="{accTypes>idtipo}" text="{accTypes>descricao}" />
+				</Select>
+				<Label text="{i18n>Account.description}" required="true" />
+				<Input id="description"
+					value="{path : 'account>/descricao',
+                       type : 'sap.ui.model.type.String',
+                       constraints : {
+                       		minLength : 1
+                       }}" />
+				<Label text="{i18n>Account.openDate}" required="true" />
+				<DatePicker id="opendate"
+					value="{path : 'account>/dataabertura',
+                       type : 'sap.ui.model.type.String',
+                       constraints : {
+                       		minLength : 1
+                       }}"
+					valueFormat="yyyy-MM-dd" />
+				<Label text="{i18n>Account.creditLimit}" />
+				<Input id="creditlimit" type="Number"
+					value="{account>/limitecredito}" />
+				<Label id="invoicedayLabel" text="{i18n>Account.invoiceDay}"
+					visible="false" required="true" />
+				<Input id="invoiceday" type="Number"
+					value="{path : 'account>/diafatura',
+                       type : 'sap.ui.model.type.Integer',
+                       constraints : {
+                       		minimum : 1,
+                       		maximum : 31
+                       }}"
+					visible="false" />
+			</f:SimpleForm>
+		</l:Grid>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button icon="sap-icon://save" text="{i18n>XBUT.save}" type="Emphasized"
+					press="onSave" />
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,63 @@
+SetEnv APPLICATION_ENV "development"
+
+DirectoryIndex index.html
+#AllowOverride All
+#Order allow,deny
+#Allow from all
+Options -Indexes
+Options -Includes
+Options -ExecCGI
+
+
+#Rewrite
+#RewriteBase /
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php [NC,L]
+
+#RewriteRule ^\.htaccess$ - [F]
+#RewriteCond %{REQUEST_URI} =""
+#RewriteRule ^.*$ /public/index.php [NC,L]
+#RewriteCond %{REQUEST_URI} !^/public/.*$
+#RewriteRule ^(.*)$ /public/$1
+#RewriteCond %{REQUEST_FILENAME} -f
+#RewriteRule ^.*$ - [NC,L] 
+#RewriteRule ^public/.*$ /public/index.php [NC,L]
+
+# CORS
+#Header set Access-Control-Allow-Origin "*"
+
+#Appcache
+AddType text/cache-manifest .appcache
+
+#Gzip
+<IfModule mod_deflate.c>
+<files *>
+SetOutputFilter DEFLATE
+</files>
+</IfModule>
+
+#Media caching (1 week = 604800)
+<FilesMatch "\.(gif|jpg|jpeg|png|ico|css|js)">
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault "access plus 1 week"
+</IfModule>
+
+FileETag MTime Size
+Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+
+# Force no caching for dynamic files
+<FilesMatch "\.(php|cgi|pl|htm|appcache|txt)">
+<IfModule mod_expires.c>
+ExpiresActive Off
+</IfModule>
+
+Header set Cache-Control "private, no-cache, no-store, proxy-revalidate, no-transform"
+Header set Pragma "no-cache"
+</FilesMatch>

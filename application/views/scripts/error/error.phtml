@@ -1,0 +1,32 @@
+<?php echo $this->doctype() ?>
+<html lang="pt-br">
+<head>
+  <meta charset="<?php echo $this->getEncoding(); ?>">
+  <meta name="description" content="MyMoney - gerenciador financeiro pessoal">
+  <meta name="keywords" content="finan&ccedil;as, despesas, or&ccedil;amento, gerenciador, controle, planejamento, financeiro, pessoal, familiar, contas">
+  <meta name="author" content="Mauricio Lauffer">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+</head>
+<body>
+  <h1>An error occurred</h1>
+  <h2><?php echo $this->message ?></h2>
+
+  <?php if (isset($this->exception)): ?>
+
+  <h3>Exception information:</h3>
+  <p>
+      <b>Message:</b> <?php echo $this->exception->getMessage() ?>
+  </p>
+
+  <h3>Stack trace:</h3>
+  <pre><?php echo $this->exception->getTraceAsString() ?>
+  </pre>
+
+  <h3>Request Parameters:</h3>
+  <pre><?php echo var_export($this->request->getParams(), true) ?>
+  </pre>
+  <?php endif ?>
+
+</body>
+</html>

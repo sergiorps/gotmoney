@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<Dialog title="{i18n>Login.title}" icon="sap-icon://customer"
+		afterClose="onAfterCloseLogin">
+		<Panel>
+			<VBox>
+				<HBox justifyContent="End">
+					<Link text="{i18n>Login.forgot}" press="onRecovery" />
+				</HBox>
+				<Label text="{i18n>Login.email}" />
+				<Input id="email" />
+				<Label text="{i18n>Login.password}" />
+				<Input id="pwd" type="Password" />
+				<HBox justifyContent="End">
+					<Button icon="sap-icon://log" text="{i18n>XBUT.login}"
+						press="onSystemLogin" />
+				</HBox>
+			</VBox>
+		</Panel>
+		<Panel headerText="{i18n>Login.social}">
+			<VBox>
+				<Button text="{i18n>Login.facebook}" press="onFacebookLogin" icon="https://www.facebookbrand.com/img/assets/asset.f.logo.lg.png" />
+				<Button id="btGoogle" text="{i18n>Login.google}" icon="https://developers.google.com/identity/sign-in/g-normal.png" />
+			</VBox>
+		</Panel>
+		<buttons>
+			<Button icon="sap-icon://decline" type="Reject" press="onCloseLogin" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

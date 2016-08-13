@@ -1,0 +1,61 @@
+<mvc:View controllerName="com.mlauffer.gotmoneyappui5.controller.Transaction"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Page title="{i18n>Transaction.title}" showNavButton="true"
+		navButtonPress="onNavBack">
+		<l:Grid defaultSpan="L12 M12 S12" width="auto">
+			<f:SimpleForm id="transactionForm" minWidth="800" maxContainerCols="2"
+				editable="true" layout="ResponsiveGridLayout" labelSpanL="3"
+				labelSpanM="3" emptySpanL="3" emptySpanM="3" columnsL="1" columnsM="1">
+				<core:Title text="{i18n>General.edit}" />
+				<Label text="{i18n>Transaction.account}" required="true" />
+				<Select id="idaccount" selectedKey="{idconta}" items="{/User/Account}">
+					<core:Item key="{idconta}" text="{descricao}" />
+				</Select>
+				<Label text="{i18n>Transaction.type}" required="true" />
+				<Select id="type" selectedKey="{tipo}">
+					<core:Item key="D" text="{i18n>Debit}" />
+					<core:Item key="C" text="{i18n>Credit}" />
+				</Select>
+				<Label text="{i18n>Transaction.description}" required="true" />
+				<Input id="description" value="{path : 'descricao',
+                       type : 'sap.ui.model.type.String',
+                       constraints : {
+                       		minLength : 1
+                       }}" />
+				<Label text="{i18n>Transaction.amount}" required="true" />
+				<Input id="amount" type="Number" value="{valor}" />
+				<Label text="{i18n>Transaction.payment}" />
+				<CheckBox id="idstatus" text="{i18n>Transaction.payment}"
+					selected="{path:'idstatus', formatter:'.formatter.convertIdStatusToBoolean'}" />
+				<Label id="startdateLabel" text="{i18n>Transaction.startDate}" required="true" />
+				<DatePicker id="startdate" value="{path : 'datalancamento',
+                       type : 'sap.ui.model.type.String',
+                       constraints : {
+                       		minLength : 1
+                       }}" valueFormat="yyyy-MM-dd" />
+				<Label id="duedateLabel" text="{i18n>Transaction.dueDate}" required="true" />
+				<DatePicker id="duedate" value="{path : 'datavencimento',
+                       type : 'sap.ui.model.type.String',
+                       constraints : {
+                       		minLength : 1
+                       }}" valueFormat="yyyy-MM-dd" />
+				<Label id="splitLabel" text="{i18n>Transaction.split}" />
+				<Input id="split" width="5em" value="{parcela}" editable="false" />
+				<Label text="{i18n>Transaction.category}" />
+				<MultiComboBox id="category" items="{/User/Category}" selectedKeys="{tag}">
+					<core:Item key="{idcategoria}" text="{descricao}" />
+				</MultiComboBox>
+			</f:SimpleForm>
+		</l:Grid>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button icon="sap-icon://save" text="{i18n>XBUT.save}" type="Emphasized"
+					press="onSave" />
+				<Button icon="sap-icon://delete" text="{i18n>XBUT.delete}"
+					press="onDelete" />
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

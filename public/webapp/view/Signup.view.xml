@@ -1,0 +1,88 @@
+<mvc:View controllerName="com.mlauffer.gotmoneyappui5.controller.Signup"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Page title="{i18n>Signup.title}" showNavButton="true"
+		navButtonPress="onNavBack">
+		<Panel headerText="{i18n>Signup.social}">
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="{i18n>Signup.facebook}" press="onFacebookLogin" icon="https://www.facebookbrand.com/img/assets/asset.f.logo.lg.png" />
+				<ToolbarSpacer />
+				<Button id="btGoogle" text="{i18n>Signup.google}" icon="https://developers.google.com/identity/sign-in/g-normal.png" />
+				<ToolbarSpacer/>
+			</OverflowToolbar>
+		</Panel>
+		<Panel headerText="{i18n>Signup.account}">
+		<l:Grid defaultSpan="L12 M12 S12" width="auto">
+			<f:SimpleForm id="userForm" minWidth="800"
+				maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+				labelSpanL="3" labelSpanM="3" emptySpanL="3" emptySpanM="3"
+				columnsL="1" columnsM="1">
+				<core:Title text="{i18n>User.personalData}" />
+				<Label text="{i18n>User.email}" required="true" />
+				<Input id="email" type="Email"
+					value="{path : 'user>/email',
+                       type : '.ZString',
+                       constraints : {
+                       		minLength : 1,
+                       		email : true
+                       }}" />
+				<Label text="{i18n>User.name}" required="true" />
+				<Input id="name"
+					value="{path : 'user>/name',
+                       type : 'sap.ui.model.type.String',
+                       constraints : {
+                       		minLength : 1
+                       }}" />
+				<Label text="{i18n>User.sex}" required="true" />
+				<Select id="sex" selectedKey="{user>/sex}">
+					<core:Item key="F" text="{i18n>User.female}" />
+					<core:Item key="M" text="{i18n>User.male}" />
+				</Select>
+				<Label text="{i18n>User.birthdate}" required="true" />
+				<DatePicker id="birthdate"
+					value="{path : 'user>/birthdate',
+                       type : 'sap.ui.model.type.String',
+                       constraints : {
+                       		minLength : 1
+                       }}"
+					valueFormat="yyyy-MM-dd" />
+				<Label text="{i18n>User.notification}" />
+				<Switch id="alert" state="{user>/alert}" />
+
+				<core:Title text="{i18n>User.security}" />
+				<Label text="{i18n>User.password}" required="true" />
+				<Input id="pwd" type="Password"
+					value="{path : 'user>/pwd',
+                       type : 'sap.ui.model.type.String',
+                       constraints : {
+                       		minLength : 6
+                       }}" />
+				<Label text="{i18n>User.passwordRepeat}" required="true" />
+				<Input id="pwdRepeat" type="Password"
+					value="{path : 'user>/pwdRepeat',
+                       type : 'sap.ui.model.type.String',
+                       constraints : {
+                       		minLength : 6
+                       }}" />
+				<Label text="{i18n>User.captcha}" required="true" />
+				<Input visible="false" id="captcha"
+					value="{path : 'user>/captcha',
+                       type : 'sap.ui.model.type.String',
+                       constraints : {
+                       		minLength : 1
+                       }}" />
+				<Label text="{i18n>User.terms}" required="true" />
+				<CheckBox id="terms" state="{user>/terms}" text="{i18n>User.termsAgree}" />
+			</f:SimpleForm>
+		</l:Grid>
+		</Panel>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button icon="sap-icon://save" text="{i18n>XBUT.createAppAccount}"
+					type="Emphasized" press="onSave" />
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,11 @@
+{
+  "name": "gotmoneyapp",
+  "version": "2.0.0",
+  "description": "Got Money App",
+  "author": "Mauricio Lauffer",
+  "private": true,
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-openui5": "^0.8.1"
+  }
+}

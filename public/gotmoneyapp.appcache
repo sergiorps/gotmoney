@@ -1,0 +1,13 @@
+CACHE MANIFEST
+# 2.0v 2016-04-04
+
+CACHE:
+//gotmoneyapp.com
+//gotmoneyapp.com/css/gotmoneyapp.min.css
+//gotmoneyapp.com/js/gotmoneyapp.min.js
+//gotmoneyapp.com/images/favicon.ico
+
+NETWORK:
+*
+
+FALLBACK:

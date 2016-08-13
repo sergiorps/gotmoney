@@ -1,0 +1,20 @@
+{
+  "AccountTypeCollection": [
+    {
+      "idtype": "001",
+      "description": "Cash"
+    },
+    {
+      "idtype": "002",
+      "description": "Cartão de Crédito"
+    },
+    {
+      "idtype": "003",
+      "description": "Conta corrente"
+    },
+    {
+      "idtype": "004",
+      "description": "Conta poupança"
+    }
+  ]
+}

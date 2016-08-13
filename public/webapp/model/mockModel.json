@@ -1,0 +1,143 @@
+{
+  "UserCollection": {
+    "iduser": "2",
+    "email": "lauffer@outlook.com",
+    "name": "Mauricio Lauffer",
+    "sex": "M",
+    "birthdate": "1983-07-25",
+    "createdate": "20140523",
+    "alert": true,
+    "lastchange": "20140913",
+    "lastsync" : "20140913",
+    "CategoryCollection": [
+      {
+        "idcategory": "1",
+        "description": "Aluguel",
+        "origin": "W",
+        "lastchange": "20140913"
+      },
+      {
+        "idcategory": "2",
+        "description": "Comida",
+        "origin": "W",
+        "lastchange": "20140913"
+      },
+      {
+        "idcategory": "3",
+        "description": "Bar",
+        "origin": "W",
+        "lastchange": "20140913"
+      },
+      {
+        "idcategory": "4",
+        "description": "Carro",
+        "origin": "W",
+        "lastchange": "20140913"
+      }
+    ],
+    "AccountCollection": [
+      {
+        "idaccount": "001",
+        "idtype": "001",
+        "description": "conta tipo Cash",
+        "creditlimit": "",
+        "balance": 1500.02,
+        "opendate": "2011-09-13",
+        "invoiceday": "0",
+        "origin": "W",
+        "lastchange": "20140913"
+      },
+      {
+        "idaccount": "002",
+        "idtype": "002",
+        "description": "conta tipo cartao crédito",
+        "creditlimit": "",
+        "balance": 1500,
+        "opendate": "2012-09-13",
+        "invoiceday": "5",
+        "origin": "W",
+        "lastchange": "20140913"
+      },
+      {
+        "idaccount": "003",
+        "idtype": "003",
+        "description": "conta tipo conta corrente",
+        "creditlimit": "",
+        "balance": 1500,
+        "opendate": "2013-09-13",
+        "invoiceday": "0",
+        "origin": "W",
+        "lastchange": "20140913"
+      },
+      {
+        "idaccount": "004",
+        "idtype": "004",
+        "description": "conta tipo poupança",
+        "creditlimit": "",
+        "balance": 1500,
+        "opendate": "2014-09-13",
+        "invoiceday": "5",
+        "origin": "W",
+        "lastchange": "20140913"
+      }
+    ],
+    "TransactionCollection": [
+      {
+        "idtransaction": "1",
+        "idaccount": "004",
+        "idparent": "",
+        "idstatus": true,
+        "description": "Conta 1",
+        "split": "1/1",
+        "amount": "123.98",
+        "type": "C",
+        "duedate": "2011-01-13",
+        "tag": "",
+        "origin": "W",
+        "lastchange": "20140913"
+      },
+      {
+        "idtransaction": "2",
+        "idaccount": "003",
+        "idparent": "",
+        "idstatus": false,
+        "description": "Aluguel",
+        "split": "1/1",
+        "amount": "12345.98",
+        "type": "D",
+        "duedate": "2012-02-13",
+        "tag": "",
+        "origin": "W",
+        "lastchange": "20140913"
+      },
+      {
+        "idtransaction": "3",
+        "idaccount": "002",
+        "idparent": "",
+        "idstatus": true,
+        "description": "Carro",
+        "split": "1/1",
+        "amount": "45.00",
+        "type": "C",
+        "duedate": "2013-03-13",
+        "tag": "",
+        "origin": "W",
+        "lastchange": "20140913"
+      },
+      {
+        "idtransaction": "4",
+        "idaccount": "001",
+        "idparent": "",
+        "idstatus": false,
+        "description": "Mercado",
+        "split": "1/1",
+        "amount": "9812345.98",
+        "type": "D",
+        "duedate": "2014-04-13",
+        "tag": "",
+        "origin": "A",
+        "lastchange": "20140913"
+      }
+    ]
+  }
+}

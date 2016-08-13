@@ -1,0 +1,40 @@
+<mvc:View controllerName="com.mlauffer.gotmoneyappui5.controller.Index" xmlns:core="sap.ui.core"
+          xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+    <Page title="{i18n>Index.title}">
+        <Panel class="sapUiLargeMargin" width="auto">
+            <VBox>
+                <VBox alignItems="Center">
+                    <Title level="H1" text="{i18n>Index.subTitle1}" class="sapMH1FontSize"/>
+                    <Title level="H2" text="{i18n>Index.subTitle2}" class="sapMH2FontSize"/>
+                </VBox>
+                <VBox alignItems="Start">
+                    <Title level="H2" text="{i18n>Index.t1}" class="sapMH3FontSize sapUiLargeMarginTop"/>
+                    <Text text="{i18n>Index.p1a}"/>
+                    <Text text="{i18n>Index.p1b}"/>
+                    <Text text="{i18n>Index.p1c}"/>
+                </VBox>
+                <VBox alignItems="End">
+                    <Title level="H2" text="{i18n>Index.t2}" class="sapMH3FontSize sapUiLargeMarginTop"/>
+                    <Text text="{i18n>Index.p2a}"/>
+                    <Text text="{i18n>Index.p2b}"/>
+                </VBox>
+                <VBox alignItems="Start">
+                    <Title level="H2" text="{i18n>Index.t3}" class="sapMH3FontSize sapUiLargeMarginTop"/>
+                    <Text text="{i18n>Index.p3a}"/>
+                    <Text text="{i18n>Index.p3b}"/>
+                    <Text text="{i18n>Index.p3c}"/>
+                </VBox>
+                <VBox alignItems="End">
+                    <Title level="H2" text="{i18n>Index.t4}" class="sapMH3FontSize sapUiLargeMarginTop"/>
+                    <Text text="{i18n>Index.p4a}"/>
+                    <Text text="{i18n>Index.p4b}"/>
+                    <Text text="{i18n>Index.p4c}"/>
+                    <Text text="{i18n>Index.p4d}"/>
+                </VBox>
+            </VBox>
+        </Panel>
+        <footer>
+            <core:Fragment fragmentName="com.mlauffer.gotmoneyappui5.view.IndexFooter" type="XML"/>
+        </footer>
+    </Page>
+</mvc:View>

@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+						 xmlns="sap.m">
+	<Dialog title="{i18n>Recovery.title}" icon="sap-icon://shield"
+			afterClose="onAfterCloseRecovery">
+		<Panel>
+			<VBox>
+				<Label text="{i18n>Recovery.email}" required="true" />
+				<Input id="email" />
+			</VBox>
+		</Panel>
+		<buttons>
+			<Button icon="sap-icon://alert" text="{i18n>XBUT.reset}" type="Emphasized"
+					press="onResetPassword" />
+			<Button icon="sap-icon://decline" type="Reject" press="onCloseRecovery" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

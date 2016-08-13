@@ -1,0 +1,59 @@
+<mvc:View controllerName="com.mlauffer.gotmoneyappui5.controller.TransactionList"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns="sap.m">
+	<Page id="transactionListPage"
+		title="{i18n>Transaction.listTitle}" showNavButton="true" navButtonPress="onNavBack">
+		<u:CalendarMonthInterval id="calendar"
+			startDate="{path:'', formatter:'.formatter.getCalendarStartDate'}"
+			width="100%" select="onSelectDate" />
+		<Table id="transactionTable" items="{/User/Transaction}" updateStarted="onUpdateStarted" updateFinished="onUpdateFinished">
+            <headerToolbar>
+                <Toolbar>
+                    <Title id="countTitle" text="{i18n>Transaction.count}"/>
+                </Toolbar>
+            </headerToolbar>
+			<columns>
+				<Column>
+					<Text text="{i18n>Transaction.description}" />
+				</Column>
+				<Column hAlign="Center" width="8em">
+					<Text text="{i18n>Transaction.dueDate}" />
+				</Column>
+				<Column hAlign="Center" width="4em" demandPopin="true"
+					minScreenWidth="Small">
+					<Text text="{i18n>Transaction.split}" />
+				</Column>
+				<Column hAlign="Right">
+					<Text text="{i18n>Transaction.amount}" />
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="{i18n>Transaction.account}" />
+				</Column>
+				<Column hAlign="Center" width="3em" demandPopin="true"
+					minScreenWidth="Small">
+					<Text text="{i18n>Transaction.status}" />
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem type="Navigation" press="onItemPress">
+					<cells>
+						<ObjectIdentifier title="{descricao}" />
+						<Text text="{datavencimento}" />
+						<Text text="{parcela}" />
+						<ObjectNumber number="{path:'valor'}"
+							state="{= ${tipo} === 'C' ? 'None' : 'Error' }" />
+						<Text text="{path:'idconta', formatter:'.formatter.accountName'}" />
+						<ObjectStatus
+							icon="{path:'idstatus', formatter:'.formatter.paymentIcon'}"
+							state="{path:'idstatus', formatter:'.formatter.paymentStatus'}" />
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button icon="sap-icon://add" text="{i18n>XBUT.new}" press="onAddNew" />
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

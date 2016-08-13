@@ -1,0 +1,76 @@
+<mvc:View controllerName="com.mlauffer.gotmoneyappui5.controller.Transaction"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Page title="{i18n>Transaction.title}" showNavButton="true"
+		navButtonPress="onNavBack">
+		<l:Grid defaultSpan="L12 M12 S12" width="auto">
+			<f:SimpleForm id="transactionForm" minWidth="800" maxContainerCols="2"
+				editable="true" layout="ResponsiveGridLayout" labelSpanL="3"
+				labelSpanM="3" emptySpanL="3" emptySpanM="3" columnsL="1" columnsM="1">
+				<core:Title text="{i18n>General.create}" />
+				<Label text="{i18n>Transaction.account}" required="true" />
+				<Select id="idaccount" selectedKey="{transaction>/idconta}" items="{/User/Account}">
+					<core:Item key="{idconta}" text="{descricao}" />
+				</Select>
+				<Label text="{i18n>Transaction.type}" required="true" />
+				<Select id="type" selectedKey="{transaction>/type}">
+					<core:Item key="D" text="{i18n>Debit}" />
+					<core:Item key="C" text="{i18n>Credit}" />
+				</Select>
+				<Label text="{i18n>Transaction.description}" required="true" />
+				<Input id="description" value="{path : 'transaction>/description',
+                       type : 'sap.ui.model.type.String',
+                       constraints : {
+                       		minLength : 1
+                       }}" />
+				<Label text="{i18n>Transaction.amount}" required="true" />
+				<Input id="amount" type="Number" value="{transaction>/amount}" />
+				<Label text="{i18n>Transaction.payment}" />
+				<CheckBox id="idstatus" text="{i18n>Transaction.payment}"
+					selected="{transaction>/idstatus}" />
+				<Label text="{i18n>Transaction.occurrence}" required="true" />
+				<Select id="occurrence" selectedKey="{transaction>/occurrence}" change="onChangeOccur">
+					<core:Item key="U" text="{i18n>OneTime}" />
+					<core:Item key="D" text="{i18n>Dayly}" />
+					<core:Item key="W" text="{i18n>Weekly}" />
+					<core:Item key="M" text="{i18n>Monthly}" />
+					<core:Item key="Y" text="{i18n>Annually}" />
+				</Select>
+				<Label id="duedateLabel" text="{i18n>Transaction.dueDate}" required="true" />
+				<DatePicker id="duedate" value="{path : 'transaction>/duedate',
+                       type : 'sap.ui.model.type.String',
+                       constraints : {
+                       		minLength : 1
+                       }}" valueFormat="yyyy-MM-dd" />
+				<Label id="startdateLabel" text="{i18n>Transaction.startDate}"
+					visible="false" required="true" />
+				<DatePicker id="startdate" value="{path : 'transaction>/duedate',
+                       type : 'sap.ui.model.type.String',
+                       constraints : {
+                       		minLength : 1
+                       }}" valueFormat="yyyy-MM-dd" visible="false" />
+				<Label id="splitLabel" text="{i18n>Transaction.split}"
+					visible="false" required="true" />
+				<Input id="split" width="10em" type="Number" value="{path : 'transaction>/split',
+                       type : 'sap.ui.model.type.Integer',
+                       constraints : {
+                       		minimum : 1
+                       }}"
+					visible="false" description="{i18n>Transaction.times}" />
+                <Label text="{i18n>Transaction.category}" />
+                <MultiComboBox id="category" items="{/User/Category}" selectedKeys="{transaction>/tag}">
+                    <core:Item key="{idcategoria}" text="{descricao}" />
+                </MultiComboBox>
+			</f:SimpleForm>
+		</l:Grid>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button icon="sap-icon://save" text="{i18n>XBUT.save}" type="Emphasized"
+					press="onSave" />
+				<Button icon="sap-icon://delete" text="{i18n>XBUT.delete}"
+					press="onDelete" />
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>
